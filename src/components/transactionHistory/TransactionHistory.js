@@ -1,10 +1,28 @@
 import PropTypes from "prop-types";
 import TransactionHistoryItem from "./transactionHistoryItem/TransactionHistoryItem";
-import styles from "./TransactionHistory.module.css";
+import styled from "styled-components";
+
+const Table = styled.table`
+    margin: 50px auto;
+    width: 600px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+
+    tr {
+        height: 50px;
+    }
+
+    td {
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: honeydew;
+    }
+`;
 
 const TransactionHistory = ({items}) => {
     return (
-        <table className={styles.transactionHistory}>
+        <Table>
             <thead>
                 <tr>
                     <th>Type</th>
@@ -14,11 +32,11 @@ const TransactionHistory = ({items}) => {
             </thead>
 
             <tbody>
-                {items.map((item) => (
+                {items.map(item => (
                     <TransactionHistoryItem key={item.id} {...item} />
                 ))}
             </tbody>
-        </table>
+        </Table>
     );
 };
 

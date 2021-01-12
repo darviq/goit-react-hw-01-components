@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
-import styles from "./FriendListItem.module.css";
+import Li from "./FriendListItemStyled";
 
 const FriendListItem = ({avatar, name, isOnline}) => {
     return (
-        <li className={styles.item}>
-            <span className={isOnline ? styles.online : styles.offline}></span>
-            <img className={styles.avatar} src={avatar} alt="Аватар друга" width="48" />
-            <p className={styles.name}>{name}</p>
-        </li>
+        <Li isOnline={isOnline}>
+            <span className="status"></span>
+            <img className="avatar" src={avatar} alt="Аватар друга" width="48" />
+            <p className="name">{name}</p>
+        </Li>
     );
 };
 
